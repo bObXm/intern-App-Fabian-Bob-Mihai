@@ -1,6 +1,5 @@
 import React from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
-
 import logo from '../assets/images/logo.webp';
 
 const Layout: React.FC = (): JSX.Element => {
