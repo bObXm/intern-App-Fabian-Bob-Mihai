@@ -15,6 +15,6 @@
 
 .logo {
   @include for-phone-only {
-    width: 50px;
+    width: 10rem;
   }
 }
