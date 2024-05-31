@@ -8,8 +8,6 @@ const Users : React.FC = (): JSX.Element => {
   const [gender, setGender] = useState<Gender>('');
   const [pageToGet, setPageToGet] = useState<number>(1);
 
-  console.log(users)
-
   useEffect(()=>{
     const getUsersData = async() =>{
       const response= await getUsers(pageToGet!)
@@ -19,6 +17,8 @@ const Users : React.FC = (): JSX.Element => {
     }
     getUsersData()
 },[pageToGet]) 
+
+console.log(users)
 
   return (
     <div>
