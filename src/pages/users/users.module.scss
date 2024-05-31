@@ -1,21 +1,38 @@
 .loadButton {
-    width: 200px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    background-color: rgb(66, 66, 66);
-    border-radius: 5px;
-    color: white;
-    border: none;
-    position: relative;
-    cursor: pointer;
-    transition-duration: .2s;
-    flex-direction: row;
-  }
-  
-  .loadButton:hover {
-    background-color: rgb(77, 77, 77);
-    transition-duration: .2s;
-    justify-content: center;
-  }
+  width: 200px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: rgb(66, 66, 66);
+  border-radius: 5px;
+  color: white;
+  border: none;
+  position: relative;
+  cursor: pointer;
+  transition-duration: 0.2s;
+  flex-direction: row;
+}
+
+.loadButton:hover {
+  background-color: rgb(77, 77, 77);
+  transition-duration: 0.2s;
+  justify-content: center;
+}
+
+.container {
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #4a4a4a;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 10px 10px 0 0;
+}

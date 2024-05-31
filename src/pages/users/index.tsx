@@ -21,9 +21,9 @@ const Users : React.FC = (): JSX.Element => {
 console.log(users)
 
   return (
-    <div>
-      <div style={{ backgroundColor: 'grey' }}>
-        Users
+    <div className={styles.container}>
+      <div className={styles.header}>
+        <span>Users</span>
         <select
           id="gender"
           name="gender"
@@ -36,16 +36,11 @@ console.log(users)
           <option value="male">Male</option>
         </select>
       </div>
-      <ul>
+      <ul >
         {users.length > 0
           ? users.map((user: User) => (
             <li key={user.login.uuid}>
-              {user.name.first}
-              {' '}
-              {user.name.last}
-              {' '}
-              {user.gender}
-              {' '}
+              {user.name.first} {user.name.last} {user.gender}
             </li>
           ))
           : null}
@@ -69,7 +64,7 @@ export default Users;
 // 2. TEC theme is not displayed on the app bar instead a green color is seen.     X
 // 3. Users screen does not display any data.     X
 // 4. Load more button style is not working.      X
-// 5. Style issues are encountered on the page - style however you want.
+// 5. Style issues are encountered on the page - style however you want.      X
 // 6. Additional data is not displayed upon using "Load more" button.
 // 7. Users are not filtered by gender and the list does not reset on change select.
 // 8. No loading state is displayed when accessing "Users" component.
