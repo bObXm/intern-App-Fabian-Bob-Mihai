@@ -65,10 +65,10 @@ console.log(users)
 
 export default Users;
 
-// 1. The logo looks tiny on smaller devices. X
-// 2. TEC theme is not displayed on the app bar instead a green color is seen. X
-// 3. Users screen does not display any data.
-// 4. Load more button style is not working.
+// 1. The logo looks tiny on smaller devices.    X
+// 2. TEC theme is not displayed on the app bar instead a green color is seen.     X
+// 3. Users screen does not display any data.     X
+// 4. Load more button style is not working.      X
 // 5. Style issues are encountered on the page - style however you want.
 // 6. Additional data is not displayed upon using "Load more" button.
 // 7. Users are not filtered by gender and the list does not reset on change select.

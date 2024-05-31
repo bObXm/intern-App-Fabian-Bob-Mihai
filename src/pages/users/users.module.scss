@@ -1,4 +1,4 @@
-.loadButlon {
+.loadButton {
     width: 200px;
     height: 40px;
     display: flex;
@@ -14,7 +14,7 @@
     flex-direction: row;
   }
   
-  .loadButlon:hover {
+  .loadButton:hover {
     background-color: rgb(77, 77, 77);
     transition-duration: .2s;
     justify-content: center;
