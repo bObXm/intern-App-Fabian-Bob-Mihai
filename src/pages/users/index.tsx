@@ -1,41 +1,24 @@
-import { useEffect, useState } from 'react';
-
-import { currentEnvironment } from '@constants';
-
+import React, { useEffect, useState } from 'react';
 import styles from './users.module.scss';
+import { Gender, User } from 'dtos';
+import { getUsers } from '../../api';
 
-type Gender = 'female' | 'male' | '';
-
-type User = {
-  gender: Gender;
-  login: {
-    uuid: string;
-  };
-  name: {
-    first: string;
-    last: string;
-  };
-};
-
-const Users = () => {
+const Users : React.FC = (): JSX.Element => {
   const [users, setUsers] = useState<User[]>([]);
   const [gender, setGender] = useState<Gender>('');
   const [pageToGet, setPageToGet] = useState<number>(1);
 
-  const getUsers = async (page: number) => {
-    const result = await fetch(
-      `${currentEnvironment.api.baseUrl}?results=5&gender=female&page=${String(page)}`,
-    );
-    const usersResults = (await result.json()) as User[];
+  console.log(users)
 
-    setUsers((oldUsers) => (page === 1 ? usersResults : [...oldUsers, ...usersResults]));
-  };
-
-  useEffect(() => {
-    void (async () => {
-      await getUsers(pageToGet);
-    })();
-  }, []);
+  useEffect(()=>{
+    const getUsersData = async() =>{
+      const response= await getUsers(pageToGet!)
+      if (response) {
+        setUsers((oldUsers) => (pageToGet === 1 ? response : [...oldUsers, ...response]));
+      }
+    }
+    getUsersData()
+},[pageToGet]) 
 
   return (
     <div>
@@ -82,8 +65,8 @@ const Users = () => {
 
 export default Users;
 
-// 1. The logo looks tiny on smaller devices.
-// 2. TEC theme is not displayed on the app bar instead a green color is seen.
+// 1. The logo looks tiny on smaller devices. X
+// 2. TEC theme is not displayed on the app bar instead a green color is seen. X
 // 3. Users screen does not display any data.
 // 4. Load more button style is not working.
 // 5. Style issues are encountered on the page - style however you want.
