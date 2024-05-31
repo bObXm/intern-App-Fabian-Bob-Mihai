@@ -10,13 +10,19 @@ const Users : React.FC = (): JSX.Element => {
 
   useEffect(()=>{
     const getUsersData = async() =>{
-      const response= await getUsers(pageToGet!)
+      const response= await getUsers(pageToGet!, gender)
       if (response) {
         setUsers((oldUsers) => (pageToGet === 1 ? response : [...oldUsers, ...response]));
       }
     }
     getUsersData()
-},[pageToGet]) 
+},[pageToGet, gender]) 
+
+const handleGenderChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+  setGender(event.target.value as Gender);
+  setPageToGet(1); 
+  setUsers([]); 
+};
 
 console.log(users)
 
@@ -27,9 +33,7 @@ console.log(users)
         <select
           id="gender"
           name="gender"
-          onChange={(event) => {
-            setGender(event.target.value as Gender);
-          }}
+          onChange={handleGenderChange}
         >
           <option value="">All</option>
           <option value="female">Female</option>
@@ -65,8 +69,8 @@ export default Users;
 // 3. Users screen does not display any data.     X
 // 4. Load more button style is not working.      X
 // 5. Style issues are encountered on the page - style however you want.      X
-// 6. Additional data is not displayed upon using "Load more" button.
-// 7. Users are not filtered by gender and the list does not reset on change select.
+// 6. Additional data is not displayed upon using "Load more" button.     X
+// 7. Users are not filtered by gender and the list does not reset on change select.      X
 // 8. No loading state is displayed when accessing "Users" component.
 // 9. On home page user should be able to do the following actions with cards that contain
 // 2 fields: Title and Description

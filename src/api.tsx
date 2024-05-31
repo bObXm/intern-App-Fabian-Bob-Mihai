@@ -2,9 +2,9 @@ import axios from 'axios';
 import currentEnvironment  from './constants/environment';
 import { User } from 'dtos';
 
-export const getUsers = async (page: number) => {
+export const getUsers = async (page: number, gender : string) => {
   try {
-    const response = await axios.get<{ results: User[] }>(`${currentEnvironment.api.baseUrl}?results=5&gender=female&page=${String(page)}`);
+    const response = await axios.get<{ results: User[] }>(`${currentEnvironment.api.baseUrl}?results=5&gender=${gender}&page=${String(page)}`);
     return response.data.results;
   } catch (error) {
     if (axios.isAxiosError(error)) {
