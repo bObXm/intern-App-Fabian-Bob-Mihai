@@ -5,6 +5,8 @@ import { BrowserRouter } from 'react-router-dom';
 
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { store } from './store';
+import { Provider } from 'react-redux';
 
 const root = ReactDOM.createRoot(
   // eslint-disable-next-line unicorn/prefer-query-selector
@@ -12,7 +14,9 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <BrowserRouter>
+   <Provider store={store}>
     <App />
+    </Provider>
   </BrowserRouter>,
 );
 

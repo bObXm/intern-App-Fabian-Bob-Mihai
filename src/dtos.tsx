@@ -10,3 +10,9 @@ export type User = {
     last: string;
   };
 };
+
+export interface CRUDUser {
+  id: number;
+  name: string;
+  email: string;
+}
